@@ -1,0 +1,48 @@
+@use 'base/variables' as v;
+
+.pedidos {
+    list-style: none;
+    padding: 0;
+    li{
+        padding: 1rem;
+        border-top: 1px solid v.$blanco;
+        p{
+            font-weight: v.$bold;
+            color: v.$verde;
+        }
+
+        span,
+        .servicio{
+            font-weight: v.$regular;
+            color: v.$blanco;
+        }
+    }
+}
+
+.productos {
+    @extend .pedidos;
+
+    .acciones {
+        margin: 0;
+    }
+    .boton,
+    .boton-eliminar {
+        margin: 0;
+    }
+}
+
+.oculto {
+    display: none;
+}
+
+.opciones-servicios:not(.oculto) {
+    display: flex;
+}
+
+.subh2{
+    margin: 4rem 0;
+}
+
+.subh3{
+    margin: 0 0 4rem 0;
+}

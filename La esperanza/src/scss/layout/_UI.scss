@@ -1,0 +1,176 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.contenedor-app {
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        min-height: 100vh;
+    }
+    .imagen {
+        height: 15rem;
+        background-image: url(../img/1.jpg);
+        background-size: cover;
+        background-position: center;
+        @include m.tablet {
+            height: auto;
+        }
+    }
+    .app {
+        width: 100%;
+        margin: 0 auto;
+        padding: 3rem 0;
+        box-sizing: border-box;
+     
+        @include m.tablet {
+            overflow: scroll;
+            overflow-x: hidden;
+            margin-right: 0;
+            padding-right: 1.5rem;
+            padding-left: 1.5rem;
+     
+            &::-webkit-scrollbar {
+                width: 0.9rem;
+            }
+     
+            &::-webkit-scrollbar-thumb {
+                background-color: rgba(255,255,255, .4);
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+.barra {
+    margin: v.$separacion;
+
+    @include m.tablet {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .boton {
+        height: 5rem;
+        transition-property: transform;
+        transition-duration: 300ms;
+        border-radius: 1rem;
+        @include m.boton(v.$verde, v.$blanco);
+        margin: 0;
+        &:hover {
+            transform: scale(1.1)};
+    }
+}
+
+/* Estilos por defecto */
+#btnServicios,
+#btnProductos,
+#btnUsuarios,
+#btnMovimientos {
+    background-color: v.$blanco;
+    color: v.$verde;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilos cuando se presiona */
+#btnServicios.presionado,
+#btnProductos.presionado,
+#btnUsuarios.presionado,
+#btnMovimientos.presionado,
+.despliegue {
+    background-color: darken(v.$verde, 10%);
+    color: v.$blanco;
+}
+
+/* Estilos cuando se hace hover */
+#btnServicios:hover,
+#btnProductos:hover {
+    cursor: pointer;
+    background-color: darken(v.$verde, 10%);
+    color: v.$blanco;
+}
+
+.mostrar-botones {
+    width: 95%;
+    margin: 0 1.5rem;
+}
+
+
+.imagen2 {
+    background-image: url(../img/2.gif);
+    background-size: contain;
+    background-repeat: no-repeat; /* Asegura que la imagen no se repita */
+    background-position: center;
+    height: 100vh; /* Por defecto */
+
+    @include m.tablet {
+        height: 140vh; /* Cambio en dispositivos tablet y más pequeños */
+    }
+}
+
+.barra-servicios {
+    margin-bottom: v.$separacion ;
+    @include m.tablet {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .boton {
+        margin: 0 0 1rem 0;
+    }
+}
+
+.mostrar-botones {
+    position: relative; /* Establecer el contenedor como posición relativa */
+    width: 95%;
+    margin: 0 1.5rem;
+}
+
+.opciones-servicios {
+    position: absolute; /* Cambiar a posición absoluta */
+    top: calc(100% + 5px); /* Posicionar debajo del botón "Servicios" */
+    left: 0; /* Alinear con el borde izquierdo del contenedor */
+    padding: 0; /* Ajustar según sea necesario */
+    z-index: 100; /* Asegurar que esté por encima de otros elementos */
+    width: 100%; /* Ajustar el ancho */
+    display: flex; /* Alinear los botones en columna */
+    flex-direction: column; /* Alinear los botones en columna */
+}
+
+/* Estilos para los enlaces con la clase 'boton-servicios' */
+.boton-servicios {
+    background-color: v.$blanco;
+    color: v.$verde;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100%; /* Ancho máximo para los botones */
+    text-align: left; /* Alinear texto a la izquierda */
+    margin-bottom: 5px; /* Espacio entre botones */
+}
+
+/* Estilos cuando se hace hover */
+.boton-servicios:hover {
+    color: v.$blanco;
+    background-color: darken(v.$verde, 10%);
+    cursor: pointer;
+}
+
+.opciones-servicios .boton-servicios {
+    font-weight: bold; /* Hacer que el texto sea negrita */
+}
+
+.imagen3 {
+    background-image: url(../img/2.gif);
+    background-size: contain;
+    background-repeat: no-repeat; /* Asegura que la imagen no se repita */
+    background-position: center;
+    height: 100vh; /* Por defecto */
+
+    @include m.tablet {
+        height: 140vh; /* Cambio en dispositivos tablet y más pequeños */
+    }
+}
